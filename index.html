@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Game Title -->
+        <h1 class="game-title">Tic Tac Toe</h1>
+        
+        <!-- Difficulty Selection -->
+        <div class="difficulty-selection">
+            <label for="mode">Chọn chế độ:</label>
+            <select id="mode" onchange="setMode()">
+                <option value="easy" selected="selected">Dễ</option>
+                <option value="medium">Trung Bình</option>
+                <option value="hard">Khó</option>
+                <option value="friends">Chơi với Bạn Bè</option>
+                <option value="online">Chơi Online</option>
+            </select>
+        </div>
+        
+        <!-- Scoreboard with headers and scores in separate rows -->
+        <div class="scoreboard">
+            <div class="score-header">X</div>
+            <div class="score-header">O</div>
+            <div class="score-header">Hòa</div>
+            <div class="score-value" id="scoreX">0</div>
+            <div class="score-value" id="scoreO">0</div>
+            <div class="score-value" id="scoreDraw">0</div>
+        </div>
+
+        <!-- Display whose turn it is -->
+        <div id="message">Lượt của X</div>
+
+        <div id="status-msg" style="display: none;">Chờ kết nối!</div>
+        <!-- Online Game Options -->
+        <div id="online-options" style="display: none;">
+            <input type="text" id="room-id" placeholder="Nhập ID Phòng"> <br>
+            <button onclick="joinRoom(document.getElementById('room-id').value)">Nhập Phòng</button>
+        </div>
+        <!-- Game board -->
+        <div id="game-board">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+
+        <!-- Restart button -->
+        <button id="button-reset" onclick="resetGame()">Khởi động lại trò chơi</button>
+    </div>
+    <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
